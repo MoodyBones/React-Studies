@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <footer className='footer-wrapper temp-pad bg-black'>
-      <p>A footer</p>
+      <p>A React App.</p>
     </footer>
   )
 }

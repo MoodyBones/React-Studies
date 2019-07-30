@@ -3,7 +3,7 @@ import React from 'react'
 
 function Hero() {
   return (
-      <section className='hero-wrapper temp-pad'>
+      <section className='hero-wrapper'>
         <div className='hero-container bg-white temp-pad'>
           <h1>I'm Mel Jones</h1>
           <p>A self-taught Web Dev based in Berlin. Born in Melbourne, Australia, I love tasty food and salty water.</p>
