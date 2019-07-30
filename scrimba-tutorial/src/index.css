@@ -1,13 +1,235 @@
-body {
+:root {
+  --main-font-family: 'Open Sans', sans-serif;;
+  --cursive-font-family: 'Major Mono Display', monospace;
+  --strong-font-family: 'Oswald', sans-serif;
+  --main-bg-color: #f2f2f2;
+  --main-font-color: #555;
+  --black: #000;
+  --white: #fff;
+  --blue: rgb(74, 90, 211); /*Increment Blue*/
+  --red: #ff5e57; /*Sunset Orange*/
+  --pink: #fff4ed; /*Eno Pink*/
+  --off-white:#f7f1e3; /*Swan White*/
+
+}
+
+
+
+/* ///// */
+/* Basic Styling */
+
+html, body {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  /* color: var(--main-font-color); */
+  font-family: var(--main-font-family);
+  font-size: 1rem;  
+  font-weight: 400;
+  line-height: 1.5;
+  background: linear-gradient(180deg, var(--blue) 0%, var(--red) 35%, var(--red) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1, h2, h3, h4, ul, ol {
+  margin-bottom: 1.5rem;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1;
+}
+
+h1 {
+  padding-top: 4.5rem;
+  padding-bottom: 1.5rem;
+  font-family: var(--cursive-font-family);
+  font-size: 3rem;
+  font-weight: 400;
+  
+}
+
+/* h1 > span {
+  font-family: var(--main-font-family);
+} */
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: -.03em;
+}
+
+
+h3 {
+  font-weight: 500;
+  letter-spacing: .06em;
+}
+
+h3, h4 {
+  font-size: 1rem;
+}
+
+h4 {
+  font-family: var(--strong-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+p {
+  max-width: 30em;
+}
+
+button {
+  /* display: inline-block; */
+  padding: 0.75rem 1.5rem;
+  color: var(--white);
+  font-family: var(--bold-font-family);
+  font-size: 1.25rem;
+  background: var(--blue);
+  box-shadow: rgba(255, 163, 148, 0.1) 0 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/* ///// */
+/* Reusable Components */
+
+.bg-linear {
+  background: linear-gradient(180deg, var(--blue) 0%, var(--red) 35%, var(--red) 100%);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.bg-black {
+  color: var(--white);
+  background: var(--black);
+}
+
+.font-cursive {
+  font-family: var(--cursive-font-family);
+}
+
+.l-s-none {
+  list-style: none;
+}
+
+.measure-narrow {
+  max-width: 30em;
+}
+
+.temp-pad {
+  padding: 1.5rem;
+}
+
+.text-clip {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,.2);
+}
+
+
+
+
+/* ///// */
+/* App Grid */
+
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, minmax(200px, auto));
+  grid-template-areas: 
+    "n n n n n n"
+    "m m m m m m"
+    "s s s s s s"
+    "f f f f f f";
+  max-width: 1500px;
+  padding: 2rem; 
+}
+
+
+/* ///// */
+/* Header */
+
+.header-wrapper {
+  grid-area: n;
+}
+
+
+/* ///// */
+/* Nav */
+
+.nav-wrapper {
+  grid-area: n;
+}
+
+.nav-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 1.5rem 1.5rem .75rem 1.5rem;
+  font-family: var(--cursive-font-family);
+  font-size: 2rem;
+  /* border-bottom: 0.5em solid var(--blue); */
+  box-shadow: 0 1px 3px rgba(#000000, 0.2);
+  list-style-type: none;
+}
+
+.nav-container li {
+  margin-right: .5rem;
+}
+
+.nav-container li:first-child {
+  flex-grow: 1;
+}
+
+/* ///// */
+/* Hero */
+
+.main-wrapper {
+  grid-area: m; 
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: rminmax(200px, auto);
+  grid-template-areas: 
+    "h t t t t t"
+    "h t t t t t"
+}
+
+/* ///// */
+/* Hero */
+
+.hero-wrapper {
+  grid-area: h;
+}
+
+/* ///// */
+/* Todo */
+
+.toDo-wrapper {
+  grid-area: t;
+}
+
+
+
+/* ///// */
+/* Skills */
+
+.skills-wrapper {
+  grid-area: s;
+  border-top: 0.5rem solid var(--blue);
+}
+
+
+
+/* ///// */
+/* Footer */
+
+.footer-wrapper {
+  grid-area: f;
 }
