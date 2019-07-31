@@ -1,12 +1,10 @@
 import React from 'react'
-import Welcome from './Welcome'
 import ToDoItem from './ToDoItem'
 
 function ToDo() {
   return (
     <section className='toDo-wrapper'>
       <div className='toDo-list'>
-        {/* <Welcome /> */}
         <ToDoItem />
         <ToDoItem />
         <ToDoItem />
