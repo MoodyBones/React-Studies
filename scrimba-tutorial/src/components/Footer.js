@@ -1,9 +1,11 @@
 import React from 'react'
+import Welcome from './Welcome'
+
 
 function Footer() {
   return (
     <footer className='footer-wrapper temp-pad bg-black'>
-      <p>A React App.</p>
+      <Welcome />
     </footer>
   )
 }
