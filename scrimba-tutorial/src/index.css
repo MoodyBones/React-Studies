@@ -329,10 +329,17 @@ input[type=checkbox]:focus {
 }
 
 .skills-container {
-  border: 1px solid white;
+  border: 1px solid var(--grey);
   border-radius: 1.5rem;
-  padding: 1rem;
-  
+  padding: 2rem;
+}
+
+.skills-container h1 {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  /* display: flex; */
+  /* justify-content: end; */
+  /* align-content: flex-end; */
 }
 
 
@@ -347,15 +354,13 @@ input[type=checkbox]:focus {
 }
 
 .skills-container li {
+  padding-left: 1rem;
   font-size: .9rem;
   font-weight: 700;
   letter-spacing: 2px;
-  border-right: 3px solid var(--grey);
+  border-left: 3px solid var(--grey);
 }
 
-.skills-container li:last-child {
-  border: none;
-}
 
 /* ///// */
 /* Jokes */
