@@ -324,20 +324,37 @@ input[type=checkbox]:focus {
 
 .skills-wrapper {
   grid-area: s;
-  /* border-top: 0.05rem solid var(--blue); */
+  background: var(--blue);
+  color: var(--grey);
 }
 
-.skills-wrapper ul {
+.skills-container {
+  border: 1px solid white;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  
+}
+
+
+.skills-container ul {
   list-style: none;
   display: grid;
   grid-gap: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-auto-rows: 50px;
+  align-items: center;
   margin-bottom: 5rem;
 }
 
-.skills-wrapper li {
-  border-right: 1px solid var(--black);
+.skills-container li {
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-right: 3px solid var(--grey);
+}
+
+.skills-container li:last-child {
+  border: none;
 }
 
 /* ///// */
@@ -348,6 +365,8 @@ input[type=checkbox]:focus {
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 200px;
+  padding: 8rem 1.5rem 5rem;
+  background: var(--grey);
 }
 
 .jokes-wrapper > h1 {
@@ -359,11 +378,10 @@ input[type=checkbox]:focus {
 .jokes-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1rem 1rem 1rem 1.5rem;
   color: var(--white);
-  font-size: .9rem;
-  font-weight: 700;
+  font-size: 1.2rem;
   background: var(--blue);
   border-radius: 1.5rem;
   box-shadow: 0 10px 6px -6px #c7c7c7;
@@ -384,6 +402,7 @@ input[type=checkbox]:focus {
   grid-gap: 1rem;;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 
