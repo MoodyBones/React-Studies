@@ -2,8 +2,9 @@ import React from 'react'
 
 function ToDoItem() {
   return (
-    <div className='toDo-item'>
-      <input type='checkbox' />
+    <div className='toDo-item round'>
+      <input type='checkbox' id='checkbox' />
+      <label for="checkbox"></label>
       <p>Learn React</p>
     </div>
   )
