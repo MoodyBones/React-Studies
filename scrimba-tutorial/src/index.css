@@ -324,7 +324,7 @@ input[type=checkbox]:focus {
 
 .skills-wrapper {
   grid-area: s;
-  background: var(--blue);
+  background: rgb(20, 20, 20);
   color: var(--grey);
 }
 
@@ -367,7 +367,7 @@ input[type=checkbox]:focus {
 .jokes-wrapper {
   grid-area: j;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 200px;
   padding: 8rem 1.5rem 5rem;

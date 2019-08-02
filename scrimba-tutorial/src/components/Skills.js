@@ -4,7 +4,7 @@ function Skills() {
   return (
     <section className='skills-wrapper temp-pad'>
       <div className='skills-container'>
-        <h1>I am a Frontend Web Dev</h1>
+        <h1>I am a <br/>Frontend <br/>Web Dev</h1>
           <ul>
             <li>HTML5</li>
             <li>CSS3</li>
