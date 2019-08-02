@@ -4,8 +4,8 @@ const JokesCard = (props) => {
   return (
     
     <div className='jokes-card'>
-      <p>{props.jokes.q}</p>
-      <p>{props.jokes.a}</p>
+       <p style={{display: !props.jokes.q && 'none'}}>{props.jokes.q}</p>
+      <p  style={{color: !props.jokes.q && 'yellow'}}>{props.jokes.a}</p>
     </div>
   )
 }

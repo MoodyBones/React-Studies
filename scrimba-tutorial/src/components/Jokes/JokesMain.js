@@ -9,7 +9,7 @@ const JokesMain = () => {
       jokes={{q:`Why did the chicken cross the road?`, a:`To get to the other side.`}}
       />
       <JokesCard 
-      jokes={{q:` `, a:`It’s hard to explain puns to kleptomaniacs because they always take things literally.`}}
+      jokes={{a:`It’s hard to explain puns to kleptomaniacs because they always take things literally.`}}
       />
     </div>
   )
