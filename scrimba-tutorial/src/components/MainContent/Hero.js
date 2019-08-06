@@ -1,4 +1,5 @@
 import React from 'react'
+import Emoji from '../Emoji'
 
 
 function Hero() {
@@ -7,6 +8,7 @@ function Hero() {
         <div className='hero-container bg-white temp-pad'>
           <h1>I'm Mel Jones</h1>
           <p>A self-taught Web Dev based in Berlin. Born in Melbourne, Australia, I love tasty food and salty water.</p>
+          <span><Emoji symbol="🌴" label="woman-technologist"/></span>
           <h4>Holiday wish list!</h4>
           <ol className='vacay-list'>
             <li>Mexico</li>

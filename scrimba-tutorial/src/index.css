@@ -266,16 +266,16 @@ button {
 .toDo-item p {
   margin-left: 1rem;
 }
-/* input[type=checkbox] {
+input[type=checkbox] {
   margin-right: 10px;
   font-size: 30px;
 }
 
 input[type=checkbox]:focus {
   outline: 0;
-} */
+}
 
-.round {
+/* .round {
   position: relative;
 }
 
@@ -288,7 +288,7 @@ input[type=checkbox]:focus {
   left: 0;
   position: absolute;
   /* top: 0; */
-  width: 28px;
+  /* width: 28px;
 }
 
 .round label:after {
@@ -315,8 +315,8 @@ input[type=checkbox]:focus {
 }
 
 .round input[type="checkbox"]:checked + label:after {
-  opacity: 1;
-}
+  opacity: 1; 
+} */
 
 
 /* ///// */
@@ -368,8 +368,8 @@ input[type=checkbox]:focus {
   grid-area: j;
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: 200px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 300px;
   padding: 8rem 1.5rem 5rem;
   background: var(--grey);
 }
@@ -385,7 +385,7 @@ input[type=checkbox]:focus {
   flex-direction: column;
   justify-content: space-between;
   justify-self: center;
-  padding: 1rem 1rem 1rem 1.5rem;
+  padding: 2rem 1rem 2rem 1.5rem;
   color: var(--white);
   font-size: 1.2rem;
   background: var(--blue);
