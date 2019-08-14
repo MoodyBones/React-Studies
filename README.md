@@ -1152,3 +1152,57 @@ ANSWER
     }
     
     export default App
+
+
+componentDidMount() {}
+
+is like a hook in our react component, that allows us to run some kind of code, immediately after the component first mounts to the DOM
+
+its a lifecycle method
+
+it's common use case is to get data from somewhere (an API)
+
+ 
+
+fetch()
+
+for http requests
+
+a built in JavaScript tool
+
+a promise based way
+
+[https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
+
+SWAPI
+
+Star Wars API
+
+[https://swapi.co/](https://swapi.co/)
+
+it's cores enabled, which means, that there are no issues with our front end application getting data from there database
+
+Promises
+
+[https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)
+
+A promise an object that may produce a single value sometime in the future:
+
+either a resolved value, or reason not to be resolved (e.g. a network error occured)
+
+A promise maybe in 1 of 3 states:
+
+fullfiled
+
+rejected
+
+pending
+
+Promises users can attach callbacks to hanlde the fulfilled value or the reason for rejection
+
+    componenDidMount() {
+    	fetch('https://swapi.com/api/person/1')
+    		.then(response => response.json())
+    	//json turns it into  JavaScript file for us
+    }
+
