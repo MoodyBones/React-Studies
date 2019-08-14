@@ -420,7 +420,7 @@ Changing the state will change how things are displayed on the screen
         constructor() {
             super()
             this.state = {
-                todos: todosDate
+                todos: todosData
             }
         }
         render () {
@@ -435,15 +435,27 @@ Changing the state will change how things are displayed on the screen
         
     }
 
+!!!!!!
+
 Event Handling
-
-allows the user to interact with your website, and do something specific (e.g. click or hover) happens
-
-[https://reactjs.org/docs/events.html#supported-events](https://reactjs.org/docs/events.html#supported-events)
 
 In React all event handlers will be JavaScript
 
 use camelCase
+
+pass in an anonymous function always!!!
+
+    <button onClick={() => console.log("I was clicked!")}>Click me</button>
+    
+    or
+    handleClick() => {
+    		console.log("I was clicked!"
+    }
+    <button onClick={handleClick}>Click me</button>
+
+allows the user to interact with your website, and do something specific (e.g. click or hover) happens
+
+[https://reactjs.org/docs/events.html#supported-events](https://reactjs.org/docs/events.html#supported-events)
 
     function handleClick() {
         console.log("I was clicked")
@@ -462,9 +474,9 @@ use camelCase
     
     export default App
 
-Never directly modify the original state!!
+**Never directly modify the original state!!**
 
-use setState() method instead
+**use setState() method instead**
 
 Any time you create a class method, where you want to use setState,
 
@@ -503,6 +515,11 @@ it makes sure that the handleClick method is bound to the context of this as it 
         }
     }
 
+when the method is part of the class it must reference using **this**
+e.g. {**this**.handleClick}
+
+    <button onClick={this.handleClick}>Change!</button>
+
 setState can take an object literal 
 
 (a new version of state, that we want to pass to it)
@@ -520,6 +537,8 @@ or if we care about the current state, use a function
 In React anytime a state changes, if there is a child component thats receiving a props with that state, it will trigger a re-render of the child component, or if it's a functional component it will run the function again.
 
 So component will receive the new props
+
+Exercise.
 
 try adding a button that will double the number
 
@@ -573,6 +592,10 @@ and one that will halve the number
     }
     export default App
 
+Exercise
+
+React Todo App Phase 6
+
 App.js
 
     /**
@@ -613,7 +636,7 @@ App.js
     					}
     				})
     
-            console.log("Changed", id)
+            //console.log("Changed", id)
         }
         
         render() {
@@ -645,7 +668,7 @@ TodoItem.js
                 <input 
                     type="checkbox" 
                     checked={props.item.completed} 
-                    onChange={(event) => props.handleChange}
+                    onChange={(event) => props.handleChange(props.item.id)}
                 />
                 <p>{props.item.text}</p>
             </div>
@@ -663,7 +686,7 @@ so it's not enough to just use
 
 because it wont receive an id property, it will receive the event object instead
 
-instead make it a function that calls (props.handleChange) and passes (props.item.id) into it
+instead make it a function that calls handleChange and passes whatever properties i want (props.item.id) into it
 
     onChange{() => props.handleChange(props.item.id)}
 
@@ -682,6 +705,18 @@ instead do the same thing but return a brand new array
 and all the items will be almost exactly the same except one item will have changed its completed item from true/false
 
 use map!!!
+
+map()
+
+returns a brand new array!!!
+
+it loops over the array looking for something
+
+and returns it in new array
+
+to review see 
+
+React Todo App Phase 6
 
 /////////////////////////
 
@@ -725,7 +760,7 @@ e.g. if a parent decides to change the props its passing down, something we can 
 
 it take a parameter called (nextProps)
 
-    componentWillReceiveProps(nextProps) {
+    	UNSAFEcomponentWillReceiveProps(nextProps) {
             if (nextProps.whateverProperty !== this.props.whateverProperty) {
                 // do something important here
             }
@@ -768,3 +803,352 @@ a common use case is if in componentDidMount you had an event listener, like if 
             // teardown or cleanup your code before your component disappears
             // (e.g remove event listener)
         }
+
+getDerivedStateFromProps() {}
+
+    static getDerivedStateFromProps(props, state) {
+    	// return the new, updated state based upon the props
+    }
+
+its a static method, so static must be included
+
+https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+React has written a blog post about how you don't need to use derived state, because it alot of the time it's been misused and caused weird bugs or performance issues
+
+more info on it here
+
+[https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+
+getSnapshotBeforeUpdate() {}
+
+    getSnapshotBeforeUpdate() {
+    		
+    }
+
+allows you to create a backup of the ways that current things are
+
+probably an object with multiple points of data inside it
+
+it's not a super common method
+
+more info here
+
+[https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate](https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate)
+
+//////////////
+
+React Conditional render
+
+Conditional.js
+
+    import React from 'react'
+    
+    function Conditional(props) {
+    	if(props.isLoading === true) {
+    		return (
+    			<h1>Loading...</h1>
+    		)
+    	} else {
+    		return (
+    			<h1>A Heading about Conditional Rendering</h1>
+    		)
+    	}
+    }
+    
+    //can also be written without the else statement
+    function Conditional(props) {
+    	if(props.isLoading === true) {
+    		return (
+    			<h1>Loading...</h1>
+    		)
+    	} 
+    	return (
+    		<h1>A Heading about Conditional Rendering</h1>
+    	)
+    }
+    
+    //OR WITH A TERNARY OPERATOR
+    
+    
+    function Conditional(props) {
+    	return (
+    		<div>
+    			props.isLoading === true ? <h1>Loading...</h1> : <h1>A Heading about Conditional Rendering</h1>
+    		</div>
+    	)
+    }
+    export default Conditional
+
+=== true is not necessary
+
+ 
+
+A TERNARY OPERATOR
+
+condition ? statement if true : statement if false
+
+more examples
+
+the below navbar and footer will immediately render while the other is 'loading'
+
+    function Conditional(props) {
+        return (
+            <div>
+                <h1>Navbar</h1>
+                
+                {props.isLoading ? <h1>Loading...</h1> : <h1>Some cool stuff about conditional rendering</h1>}
+                
+                <h1>Footer</h1>
+            </div>
+        )
+        
+    }
+
+A better way would be to have App.js control it, and the keep Conditional.js simple
+
+App.js
+
+    import React, {Component} from "react"
+    import Conditional from "./Conditional"
+    
+    class App extends Component {
+        constructor() {
+            super()
+            this.state = {
+                isLoading: true
+            }
+        }
+        
+        componentDidMount() {
+            setTimeout(() => {
+                this.setState({
+                    isLoading: false
+                })
+            }, 1500)
+        }
+        
+        render() {
+            return (
+                <div>
+                    {this.state.isLoading ?
+                    <h1>Loading...</h1> :
+                    <Conditional />}
+                </div>
+            )
+        }
+    }
+    
+    export default App
+
+Conditional.js
+
+    import React from "react"
+    
+    function Conditional(props) {
+        return <h1>Some cool stuff about conditional rendering</h1>
+    }
+    
+    export default Conditional
+
+&&
+
+true && true
+
+false && false
+
+can be used to shorten ternarys
+
+is the thing to the left of the && truthy? if yes then execute the stuff to the right 
+
+    {
+    this.state.unreadMessages.length > 0 && 
+    <h2>You have {this.state.unreadMessages.length} unread messages!</h2>
+    }
+    
+    //is the same as 
+    {
+    this.state.unreadMessages.length > 0 ? <h2>You have {this.state.unreadMessages.length} unread messages!</h2> 
+    : null
+    }
+    
+    //using && shorten the code when one of the result is null
+
+///////////
+
+Challenge 
+
+App.js
+
+    import React from "react"
+    import LogInButton from './LogInButton'
+    
+    
+    /*
+    Challenge:
+    
+    Given a stateless functional component:
+    1. Follow the steps necessary to add state to it,
+        // class-based component
+        // constructor method
+    2. Have state keep track of whether the user is logged in or not
+        // isLoggedIn: Boolean (true or false)
+    3. Add a button that logs the user in/out
+        // event listener (onClick)
+        a. extra challenge - make the button display "log in" if they're not logged in and "log out" if they are
+            // Conditional Rendering
+    4. Display text that says "Logged in" if the user is logged in, or "Logged out" if they're not.
+        // Conditional Rendering
+    */
+    
+    class App extends React.Component {
+        constructor() {
+            super()
+            this.state = {
+                isLoggedIn: true
+            }
+            // this.handleChange = this.handleChange.bind(this)
+        }
+        
+        // handleChange() {
+        //     this.setState(prevState => {
+        //         const updatedLogIn = prevState.isLoggedIn.map(status => {
+        //             if (prevState.isLoggedIn = status) {
+        //                 isLoggedIn = !isLoggedIn
+        //             }
+        //             return status 
+        //         })
+        //         return {
+        //             isLoggedIn: updatedLogIn
+        //         }    
+        //     })
+            //     
+            //         this.isLoggedIn === true
+            //         ? isloggedIn = !isLoggedIn
+            //         : <button>Log In</button>
+            //         return status
+            //     })
+            //     return {
+            //     isloggedIn: updatedLogIn
+            //     }
+            // })
+        //     console.log('clicked', this.isLoggedIn)
+        // }
+        
+        render () {
+            return (
+                <div>
+                    <LogInButton isLoggedIn={this.state.isLoggedIn} />
+                </div>
+            )
+        }
+    }
+    
+    export default App
+
+LogInButton.js
+
+    import React from "react"
+    import Conditional from './Conditional'
+    
+    
+    class LogInButton extends React.Component {
+        constructor() {
+            super()
+    				this.handleClick = this.handleClick.bind(this)
+        }
+        
+        handleClick(){
+    			this.setState(prevState => {
+    				return (
+    					isLoggedIn: !prevState.isLoggedIn
+    				)
+    			}) 
+                 
+                // make question conditional
+                // have just one button
+                // have method change whats on the button
+            return(
+                 console.log('clicked')
+            )
+        }
+        render() {
+            let buttonText = this.props.isLoggedIn ? 'Log Out'
+            : 'Log In'
+            
+            return(
+                <div>
+                    {this.props.isLoggedIn ?
+                    <h1>You are current logged in</h1> :
+                    <Conditional />}
+                    <button onClick={this.handleClick}>{buttonText}</button>
+                </div>     
+            )
+        }
+    }
+    
+    export default LogInButton
+
+Conditional.js
+
+    import React from 'react'
+    
+    
+    function Conditional(props) {
+        return <h1>Please click the button to Log in</h1>
+    }
+    
+    
+    export default Conditional
+
+ANSWER
+
+    import React from "react"
+    
+    /*
+    Challenge:
+    
+    Given a stateless functional component:
+    1. Follow the steps necessary to add state to it,
+        // class-based component
+        // constructor method
+    2. Have state keep track of whether the user is logged in or not
+        // isLoggedIn: Boolean (true or false)
+    3. Add a button that logs the user in/out
+        // event listener (onClick)
+        a. extra challenge - make the button display "log in" if they're not logged in and "log out" if they are
+            // Conditional Rendering
+    4. Display text that says "Logged in" if the user is logged in, or "Logged out" if they're not.
+        // Conditional Rendering
+    */
+    
+    class App extends React.Component {
+        constructor() {
+            super()
+            this.state = {
+                isLoggedIn: false
+            }
+            this.handleClick = this.handleClick.bind(this)
+        }
+        
+        handleClick() {
+            this.setState(prevState => {
+                return {
+                    isLoggedIn: !prevState.isLoggedIn
+                }
+            })
+        }
+        
+        render() {   
+            let buttonText = this.state.isLoggedIn ? "LOG OUT" : "LOG IN"
+            let displayText = this.state.isLoggedIn ? "Logged in" : "Logged out"
+            return (
+                <div>
+                    <button onClick={this.handleClick}>{buttonText}</button>
+                    <h1>{displayText}</h1>
+                </div>
+            )
+        }
+    }
+    
+    export default App
