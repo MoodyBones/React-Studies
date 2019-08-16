@@ -1206,3 +1206,47 @@ Promises users can attach callbacks to hanlde the fulfilled value or the reason 
     	//json turns it into  JavaScript file for us
     }
 
+
+
+
+class App extends Component {
+    	constructor(){
+    		super()
+    		this.state = {
+    			loading: false,
+    			character: {}
+    		}
+    	}
+    
+    
+    	componentDidMount() {
+    		this.setState({loading: true})
+    		fetch('https://swapi.com/api/person/1')
+    		.then(response => response.json())
+    		.then(data => {
+    			this.setState({
+    				loading: false,
+    				charater: data
+    			})
+    		}
+    	}
+    	
+    	render() {
+    		let loadingText = this.state.loading ? 'Loading..' : this.state.charater.name
+    		return(
+    			<div>
+    				<p>{loadingText}</p>
+    			</div>
+    		)
+    	}
+    }
+    
+    
+
+if you were doing with vanilla JS or Jquery, you would need to:
+
+use getElementById, change it to loading, start the API request
+
+and repeat when data is received 
+
+React allows up to be more declarative
