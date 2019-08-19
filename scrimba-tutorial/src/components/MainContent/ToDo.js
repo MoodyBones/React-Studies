@@ -1,6 +1,6 @@
-import React from 'react'
-import ToDoItem from './ToDoItem'
-import toDosData from './toDosData'
+import React from "react"
+import ToDoItem from "./ToDoItem"
+import toDosData from "./toDosData"
 
 class ToDo extends React.Component {
   constructor() {
@@ -25,20 +25,13 @@ class ToDo extends React.Component {
     })
   }
 
-
   render() {
-    const toDoItems = this.state.todos.map(item => 
-      <ToDoItem 
-        key={item.id} 
-        item={item}
-        handleChange={this.handleChange}
-      />
-    )
+    const toDoItems = this.state.todos.map(item => (
+      <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
+    ))
     return (
-      <section className='toDo-wrapper'>
-        <div className='toDo-list'>
-          {toDoItems}
-        </div>
+      <section className="toDo-wrapper">
+        <div className="toDo-list">{toDoItems}</div>
       </section>
     )
   }
