@@ -1,5 +1,6 @@
 {
   "name": "scrimba-tutorial",
+  "author": "Mel Jones | jones.mel@gmail.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
