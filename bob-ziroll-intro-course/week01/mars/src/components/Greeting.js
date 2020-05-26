@@ -26,7 +26,7 @@ export function Greeting() {
 
   return (
     <span className="greeting" style={styles}>
-      Good {timeOfDay}
+      Good {timeOfDay}!
     </span>
   )
 }

@@ -18,18 +18,23 @@ const HeroContainer = styled.section`
   }
 
   .skills {
-    color: #b57bff;
+    margin: 5em 0;
+    padding: 5em 5em;
+    // color: #b57bff;
+    color: #1e1e1e;
+    background: #fafafa;
   }
 `
 
 export function Hero() {
   return (
     <HeroContainer className="wrap">
-      <h2 className="bio">
-        Heyyy, {<Greeting />} How's it going? <br />
-        I'm Mel Jones! <br />
-      </h2>
-      <h3>I'm an Australian born, Berlin based Front-end Web Dev!</h3>
+      <div className="bio-wrapper">
+        <h2 className="bio">
+          Heyyy, {<Greeting />} How's it going? I'm Mel Jones..
+        </h2>
+        <h3>I'm an Australian born, Berlin based Front-end Web Dev!</h3>
+      </div>
       <div className="skills">
         <p>I love building:</p>
         <ol className="text-body">
